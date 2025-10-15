@@ -1,46 +1,25 @@
-import java.lang.Exception
+package ch02
 
 fun main() {
-    var isValidMenu = false
-    var selectedMenu = 0
-
-    while (isValidMenu == false) {
-        try {
-            selectedMenu = selectMenu()
-            isValidMenu = true
-        }catch (e: Exception) {
-            isValidMenu = false
-        }
-    }
-    when (selectedMenu) {
-        1 -> startGame3()
-        2 -> endGame3()
-        3 -> createCharacter3()
-    }
-}
-
-fun selectMenu(): Int {
     println("메뉴를 입력해주세요.")
     println("게임 시작하기 메뉴 1 | 게임 끝내기 메뉴 2  | 캐릭터 추가 3: ")
-
     val select = readLine()!!.toInt()
-
-    if (select < 1 || select > 3) {
-        throw Exception("입력이 잘못되었습니다.")
+    when (select) {
+        1 -> startGame2()
+        2 -> endGame2()
+        3 -> createCharacter2()
     }
-
-    return select
 }
 
-fun startGame3() {
+fun startGame2() {
     println("게임이 시작되었습니다.")
 }
 
-fun endGame3() {
+fun endGame2() {
     println("게임이 종료되었습니다.")
 }
 
-fun createCharacter1() {
+fun createCharacter() {
     val add: MutableMap<String, String> = mutableMapOf()
 
     while (true) {
@@ -56,13 +35,12 @@ fun createCharacter1() {
         println("추가하려면 Y | 추가한 캐릭터 목록 보기 N을 입력해주세요: ")
 
         var selectInput = readLine()!!.toString()
-        when (selectInput) {
+        when(selectInput) {
             "Y" -> continue
             "N" -> {
                 println(add)
                 break
             }
-
             else -> {
                 println("목록에 있는 Y/N만 입력해주세요")
                 break
@@ -71,7 +49,7 @@ fun createCharacter1() {
     }
 }
 
-fun createCharacter3() {
+fun createCharacter2() {
     val charactorList: MutableList<Map<String, String>> = mutableListOf()
 
     var isNeedMoreCharactor = "Y"

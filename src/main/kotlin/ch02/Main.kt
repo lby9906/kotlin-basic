@@ -1,3 +1,5 @@
+package ch02
+
 class Hero {
     var damage = 10
     var healthPoint = 100
